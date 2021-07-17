@@ -5,17 +5,24 @@ import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
+	@Value("${foo.email}")
+	private String email;
+
+	@Value("${foo.password}")
+	private String password;
+
 
 	@Autowired
 	@Qualifier("happyFortuneService")
 	private FortuneService fortuneService;
 	
 	// define a default constructor
-	public TennisCoach() {
+	public TennisCoach(FortuneService fortuneService) {
 		System.out.println(">> TennisCoach: inside default constructor");
 	}
 
@@ -23,6 +30,8 @@ public class TennisCoach implements Coach {
 	@PostConstruct
 	public void doMyStartupStuff() {
 		System.out.println(">> TennisCoach: inside of doMyStartupStuff()");
+		System.out.println("Properties from application.properties file : - Email "+email +", Password : - "+password );
+
 	}
 	
 	// define my destroy method
