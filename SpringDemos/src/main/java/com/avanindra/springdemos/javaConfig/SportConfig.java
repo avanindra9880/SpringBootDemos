@@ -22,7 +22,7 @@ public class SportConfig {
         return myLoggerConfig;
     }
 
-    // define bean for our happy fortune service
+    /*// define bean for our happy fortune service
     @Bean
     public FortuneService happyFortuneService() {
         return new HappyFortuneService();
@@ -34,7 +34,7 @@ public class SportConfig {
         TennisCoach mySwimCoach = new TennisCoach(happyFortuneService());
 
         return mySwimCoach;
-    }
+    }*/
 
 
 }
